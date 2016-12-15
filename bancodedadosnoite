@@ -1,0 +1,50 @@
+CREATE DATABASE sistema_pagamento;
+
+USE sistema_pagamento;
+
+CREATE TABLE fatura (
+Cod_Fatura INT PRIMARY KEY AUTO_INCREMENT,
+Data_vencimento DATE NOT NULL,
+Valor_total DECIMAL(7,2) NOT NULL, 
+Nome_cliente VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE boleto (
+Cod_Boleto INT PRIMARY KEY AUTO_INCREMENT,
+Data_Pagamento DATE NOT NULL,
+Valor_pago DECIMAL(7,2) NOT NULL
+
+
+);
+
+CREATE TABLE pagamento (
+Cod_pagamento INT PRIMARY KEY AUTO_INCREMENT,
+Valor_pago DECIMAL(7,2) NOT NULL,
+Data_pagamento DATE NOT NULL,
+Tipo_pagamento VARCHAR(8) DEFAULT 'boleto'
+
+);
+
+CREATE TABLE credito (
+Cod_credito INT PRIMARY KEY AUTO_INCREMENT,
+Valor_credito DECIMAL(7,2) NOT NULL,
+Nome_cliente VARCHAR(100) NOT NULL,
+Data_emissão DATE NOT NULL
+
+);
+
+CREATE TABLE movimentacao (
+Cod_movimentacao INT PRIMARY KEY AUTO_INCREMENT,
+Data_atual DATE NOT NULL,
+Numero_boletos INT(4) NOT NULL,
+Total_valor_pago DECIMAL(7,2) NOT NULL
+
+);
+
+
+
+1) Fatura: Código da fatura, data de vencimento, valor total e nome do cliente.
+2) Boleto: Código do boleto, data de pagamento, e valor pago.
+3) Pagamento: Código do pagamento, valor pago, a data e o tipo do pagamento efetuado (neste caso BOLETO).
+4) Crédito: Código do crédito, valor de crédito, nome do cliente, data de emissão.
+5) Movimentação: Código da movimentação, data atual, número de boletos, total de valor pago
