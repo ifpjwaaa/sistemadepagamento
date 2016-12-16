@@ -29,7 +29,7 @@
 	<%for (int i = 1; i <= qtd; i++) {
 		%>
 		
-		<form action="adicionafatura" method="get">
+		<form action="" method="get">
 		<table>
 		<tr>
 		<td>Data de pagamento:</td> <td><input type="text" name="dataPagamento"></td><br>
@@ -41,7 +41,7 @@
 		
 		</form>
 	<%
-	}%><button>Processar</button>
+	}%><button onclick="adicionafatura">Processar</button>
 	<%}
 	%>
 	

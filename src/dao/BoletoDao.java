@@ -1,11 +1,13 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import conexao.ConnectionFactory;
-import entidades.Fatura;
+import entidades.Boleto;
+
 
 public class BoletoDao {
 	
@@ -19,16 +21,17 @@ private Connection connection;
 			 throw new RuntimeException(e);
 		}
 	}
-	public void inserir(Fatura fatura) {		
+	public void inserir(Boleto boleto) {		
 	 
-	String sql = "Insert into boleto(Data_Vencimento,Valor_total,Nome_cliente) values (?,?,?)";
+	String sql = "Insert into boleto(Data_Pagamento,Valor_pago) values (?,?)";
 	
 	try {
 		PreparedStatement st = connection.prepareStatement(sql);
 		
-		st.setDate(1, new java.sql.Date(fatura.getDataVencimento().getTime()));
-		st.setDouble(2, fatura.getValorTotal());
-		st.setString(3, fatura.getNomeCliente());
+		st.setDate(1, (Date) boleto.getDataPagamento());
+		st.setDouble(2, boleto.getValorPago());
+		
+		
 		
 		st.execute();
 		connection.close();
