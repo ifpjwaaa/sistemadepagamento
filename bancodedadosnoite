@@ -29,7 +29,7 @@ CREATE TABLE credito (
 Cod_credito INT PRIMARY KEY AUTO_INCREMENT,
 Valor_credito DECIMAL(7,2) NOT NULL,
 Nome_cliente VARCHAR(100) NOT NULL,
-Data_emissão DATE NOT NULL
+Data_emissao DATE NOT NULL
 
 );
 
